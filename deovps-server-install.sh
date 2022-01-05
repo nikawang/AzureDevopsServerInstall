@@ -88,6 +88,7 @@ sed -i "s/{domainName}/$domainName/g" ./basic-new.ini
 sed -i "s/{password}/$passwd/g" ./basic-new.ini
 cp ./basic-existing.temp.ini ./basic-existing.ini
 sed -i "s/{userName}/$userName/g" ./basic-existing.ini
+sed -i "s/{sqlName}/$sqlName/g" ./basic-existing.ini
 sed -i "s/{domainName}/$domainName/g" ./basic-existing.ini
 sed -i "s/{password}/$passwd/g" ./basic-existing.ini
 

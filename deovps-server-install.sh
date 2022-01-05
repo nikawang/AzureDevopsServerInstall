@@ -91,6 +91,7 @@ sed -i "s/{userName}/$userName/g" ./basic-existing.ini
 sed -i "s/{sqlName}/$sqlName/g" ./basic-existing.ini
 sed -i "s/{domainName}/$domainName/g" ./basic-existing.ini
 sed -i "s/{password}/$passwd/g" ./basic-existing.ini
+cp ./basic-existing.ini ./basic-existing.ini.bak
 
 cp ./configuredevopsserver1.temp.ps1 ./configuredevopsserver1.ps1    
 cp ./configuredevopsserver2.temp.ps1 ./configuredevopsserver2.ps1 
@@ -109,6 +110,7 @@ do
     az vm run-command invoke --command-id RunPowerShellScript --name $vmName -g $rg --scripts "@configuredevopsserver1.ps1"
   else
     echo "configure VM $vmName .."
+    cp ./basic-existing.ini.bak ./basic-existing.ini
     sed -i "s/{vmName}/$vmName/g" ./basic-existing.ini
     az storage blob upload --container-name $containerName --file basic-existing.ini --account-name $storageAccountName
     az vm run-command invoke --command-id RunPowerShellScript --name $vmName -g $rg --scripts "@configuredevopsserver2.ps1"

@@ -28,8 +28,8 @@ az sql server create -n  $sqlName -g $rg --identity-type SystemAssigned,UserAssi
 miID=`az identity show -n $rg -g $rg  --query principalId --output tsv` 
 az sql server ad-admin create -g $rg --server-name $sqlName  --object-id $miID -u $rg
 az sql server vnet-rule create --server $sqlName --name aadevopsvnet -g $rg --subnet $subnet --vnet-name $vnetName
-az sql db create -g addevops -s $sqlName  -n AzureDevOps_Configuration -e GeneralPurpose -f Gen5 -c 2 --backup-storage-redundancy GEO
-az sql db create -g addevops -s $sqlName  -n AzureDevOps_DefaultCollection -e GeneralPurpose -f Gen5 -c 2 --backup-storage-redundancy GEO
+az sql db create -g $rg -s $sqlName  -n AzureDevOps_Configuration -e GeneralPurpose -f Gen5 -c 2 --backup-storage-redundancy GEO
+az sql db create -g $rg -s $sqlName  -n AzureDevOps_DefaultCollection -e GeneralPurpose -f Gen5 -c 2 --backup-storage-redundancy GEO
 
 ###
 #create devops server vms

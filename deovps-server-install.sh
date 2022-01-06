@@ -68,15 +68,22 @@ done
 
 ###
 #create devops server
-cp ./createdevopsserver.temp.ps1 ./createdevopsserver.ps1
-sed -i "s/{storageAccountName}/$storageAccountName/g" ./createdevopsserver.ps1
-sed -i "s/{containerName}/$containerName/g" ./createdevopsserver.ps1
+cp ./runInstaller.temp.ps1 ./runInstaller.ps1
+sed -i "s/{storageAccountName}/$storageAccountName/g" ./runInstaller.ps1
+sed -i "s/{containerName}/$containerName/g" ./runInstaller.ps1
 
 for i in $(seq $vmCount)
 do
   vmName="$vmNameBase$i" 
-  echo "install devops server to $vmName .."
-  az vm run-command invoke --command-id RunPowerShellScript --name $vmName -g $rg --scripts "@createdevopsserver.ps1"
+  echo "Download and run devops server installer to $vmName .."
+  az vm run-command invoke --command-id RunPowerShellScript --name $vmName -g $rg --scripts "@runInstaller.ps1"
+done
+
+for i in $(seq $vmCount)
+do
+  vmName="$vmNameBase$i" 
+  echo "check installing process to $vmName .."
+  az vm run-command invoke --command-id RunPowerShellScript --name $vmName -g $rg --scripts "@checkinstalling.ps1"
 done
 
 ###

@@ -11,7 +11,7 @@ Download the <b>[0.0.1](https://github.com/DanielWangZhanggui/AzureDevopsServerI
 
 ---
 
-![Topology](https://https://user-images.githubusercontent.com/4372694/148361883-90047337-e16b-4db8-8244-bfcaddf9914c.png)
+![Topology](https://user-images.githubusercontent.com/4372694/148362103-f36cb1ba-bb58-4e38-983c-c5cd336709d0.png)
 
 The icons with orange color will be deployed in the script
 

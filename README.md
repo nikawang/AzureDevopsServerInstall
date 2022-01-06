@@ -1,5 +1,5 @@
 # AzureDevopsServerInstall
-Download the <b>0.0.1</b> version in release to test.
+Download the <b>[0.0.1](https://github.com/DanielWangZhanggui/AzureDevopsServerInstall/releases/tag/0.01)</b> version in release to test.
 ## Prerequisite
 - Az cli has been installed and signed in
 - The Windows Active Directory Domain Service has been deployed

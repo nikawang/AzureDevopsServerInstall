@@ -1,13 +1,20 @@
 # AzureDevopsServerInstall
 Use the 0.0.1 version to test.
 ## Prerequisite
-- az cli has been installed and signed in
+- Az cli has been installed and signed in
 - The Windows Active Directory Domain Service has been deployed
 - The VNET and subnet has been created
 - The DNS Server in the VNET points to the Domain Service 
-- The installer has been uploaded to an Azure Storage 
-## Architecture
+- The Azure DevOps Server installer has been uploaded to an Azure Storage 
+  - It uses Azure DevOps Server 2020.1.1 in this repo. [Download Link](https://docs.microsoft.com/en-us/azure/devops/server/download/azuredevopsserver?view=azure-devops#download-the-latest-release)
+## Topology
 
+---
+
+![Topology](https://user-images.githubusercontent.com/4372694/148360312-a3d838e0-8799-4c17-ba62-61a1fffe9e95.png)
+
+The icons with orange color will be deployed in the script
+---
 
 
 ## Variables 
@@ -34,4 +41,4 @@ Use the 0.0.1 version to test.
 
 ## Set up
 1. Assign the variables  in <b>devops-server-install.sh</b>  script
-2. execute the <b>devops-server-install.sh</b> script 
+2. Execute the <b>devops-server-install.sh</b> script to install
